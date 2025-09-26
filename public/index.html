@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Task List</h1>
+    <div class="input-group">
+      <input id="taskTitle" placeholder="Task title" />
+      <button onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    async function loadTasks() {
+      const res = await fetch("/api/tasks");
+      const tasks = await res.json();
+      const list = document.getElementById("taskList");
+      list.innerHTML = "";
+      tasks.forEach(task => {
+        const li = document.createElement("li");
+        li.className = task.completed ? "done" : "";
+
+        const text = document.createElement("span");
+        text.textContent = task.title;
+
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = task.completed ? "Undo" : "Complete";
+        toggleBtn.className = "btn toggle";
+        toggleBtn.onclick = () => toggleTask(task);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.className = "btn delete";
+        deleteBtn.onclick = () => deleteTask(task.id);
+
+        li.appendChild(text);
+        li.appendChild(toggleBtn);
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+      });
+    }
+
+    async function addTask() {
+      const title = document.getElementById("taskTitle").value;
+      if (!title) return;
+      await fetch("/api/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: Date.now(), title, completed: false })
+      });
+      document.getElementById("taskTitle").value = "";
+      loadTasks();
+    }
+
+    async function deleteTask(id) {
+      await fetch(`/api/tasks/${id}`, { method: "DELETE" });
+      loadTasks();
+    }
+
+    async function toggleTask(task) {
+      await fetch(`/api/tasks/${task.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...task, completed: !task.completed })
+      });
+      loadTasks();
+    }
+
+    loadTasks();
+  </script>
+</body>
+</html>

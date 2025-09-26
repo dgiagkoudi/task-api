@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("images/windowsxp.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 50px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 2em;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 1em;
+  word-break: break-word;
+}
+
+.input-group input:hover,
+.input-group input:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.5);
+}
+
+.input-group button {
+  padding: 12px 18px;
+  border: none;
+  background-color: #0078d7;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1em;
+}
+
+.input-group button:hover {
+  background-color: #005a9e;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f7f7;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+ul li:hover {
+  transform: scale(1.02);
+  background: #f0f0f0;
+}
+
+ul li span {
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  display: inline-block;
+}
+ul li.done span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btn.toggle {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn.toggle:hover {
+  background-color: #1e7e34;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.delete:hover {
+  background-color: #b21f2d;
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 20px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group input,
+  .input-group button {
+    border-radius: 6px;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ul li button {
+    margin-top: 5px;
+    width: 100%;
+  }
+}
