@@ -30,3 +30,38 @@
   npm start
 5.  Άνοιξε τον browser στη διεύθυνση:
   http://localhost:3000
+
+## Δομή φακέλων
+
+task-api/
+
+├─ public/          # Frontend (HTML, CSS, JS)
+
+│    ├─ index.html
+
+│    ├─ style.css
+
+│    └─ main.js 
+
+├─ src/             # Backend
+
+│    ├─ controllers/
+
+│    ├─ middlewares/
+
+│    ├─ models/
+
+│    ├─ routes/
+
+│    └─ index.js
+
+├─ prisma/          # Prisma schema & migrations
+
+│    └─ schema.prisma
+
+├─ package.json
+
+├─ .gitignore
+
+└─ README.md
+
