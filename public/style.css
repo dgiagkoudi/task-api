@@ -19,7 +19,6 @@ body {
   width: 90%;
   max-width: 500px;
   box-sizing: border-box;
-  word-wrap: break-word;
 }
 
 h1 {
@@ -30,7 +29,7 @@ h1 {
 
 .input-group {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-group input {
@@ -66,6 +65,38 @@ h1 {
   background-color: #005a9e;
 }
 
+#errorMessage {
+  color: red;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.filters {
+  margin-bottom: 15px;
+}
+
+.filters .filter {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  background-color: #ccc;
+  color: #000;
+}
+
+.filters .filter.active {
+  background-color: #0078d7;
+  color: white;
+}
+
+.filters .filter:hover {
+  background-color: #005a9e;
+  color: white;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -84,20 +115,9 @@ ul li {
   flex-wrap: wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  animation: fadeIn 0.3s ease;
 }
 
-ul li:hover {
-  transform: scale(1.02);
-  background: #f0f0f0;
-}
-
-ul li span {
-  flex: 1;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  display: inline-block;
-}
 ul li.done span {
   text-decoration: line-through;
   color: gray;
