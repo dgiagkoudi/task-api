@@ -41,10 +41,19 @@ button {
   cursor: pointer;
   margin-right: 0.5rem;
   margin-top: 0.3rem;
+  background-color: #007BFF;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #0056b3;
+}
+
+.error-message{
+  color: red;
+  margin-bottom: 0.5rem;
+  display: none;
 }
 
 ul {
@@ -55,15 +64,17 @@ ul {
 
 li {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.5rem;
   border-bottom: 1px solid #ccc;
   word-break: break-word;
 }
 
-li button {
-  margin-top: 0.3rem;
+li > span.task-title {
+  flex: 1;
+  margin-right: 0.5rem;
+  word-break: break-word;
 }
 
 .completed {
@@ -71,18 +82,37 @@ li button {
   color: gray;
 }
 
+li button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+  margin-top: 0;
+  margin-left: 0.5rem;
+}
+
+li button:nth-child(2) {
+  background-color: #28a745;
+}
+
+li button:nth-child(2):hover {
+  background-color: #19692c;
+}
+
+li button:nth-child(3) {
+  background-color: #dc3545;
+}
+
+li button:nth-child(3):hover {
+  background-color: #8b1f24;
+}
+
 @media (min-width: 500px) {
-  li {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  li button {
-    margin-top: 0;
-    margin-left: 0.5rem;
-  }
-
   input {
     width: 70%;
     margin-right: 0.5rem;

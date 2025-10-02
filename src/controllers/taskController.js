@@ -34,6 +34,14 @@ exports.updateTask = (req, res) => {
   res.json(task);
 };
 
+exports.completeTask = (req, res) => {
+  const id = Number(req.params.id);
+  const task = tasks.find(t => t.id === id);
+  if (!task) return res.status(404).json({ error: "Task not found" });
+  task.completed = true;
+  res.json(task);
+};
+
 exports.deleteTask = (req, res) => {
   const id = Number(req.params.id);
   const index = tasks.findIndex(t => t.id === id);
