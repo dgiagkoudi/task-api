@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Task List</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Task Manager</title>
 </head>
 <body>
   <div class="container">
-    <h1>Task List</h1>
-
-    <div class="input-group">
-      <input id="taskTitle" placeholder="Task title" />
-      <button onclick="addTask()">Add</button>
-    </div>
-
-    <div id="errorMessage"></div>
-
-    <!-- Filters -->
-    <div class="filters">
-      <button onclick="setFilter('all')" class="btn filter active">All</button>
-      <button onclick="setFilter('completed')" class="btn filter">Completed</button>
-      <button onclick="setFilter('incomplete')" class="btn filter">Incomplete</button>
-    </div>
-
+    <h1>Task Manager</h1>
+    <input type="text" id="taskInput" placeholder="Add a new task">
+    <button id="addTask">Add</button>
     <ul id="taskList"></ul>
   </div>
-
   <script src="main.js"></script>
 </body>
 </html>
