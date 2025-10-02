@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
-const logger = require("./logger");
-const errorHandler = require("./errorHandler");
+const logger = require("./middlewares/logger");
+const errorHandler = require("./middlewares/errorHandler");
 const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
